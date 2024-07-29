@@ -1,0 +1,43 @@
+{
+    "code": 200,
+    "message": "success",
+    "data": {
+        "id": 0,
+        "name": "IRIS",
+        "fileType": "RootFolder",
+        "location": "IRIS",
+        "isLeaf": false,
+        "data": "",
+        "children": [
+            {
+                "id": 1,
+                "name": "test.sql",
+                "location": "IRIS/test.sql",
+                "fileType": "File",
+                "isLeaf": true,
+                "data": { "language": "sql", "value": "select $zversion;" }
+            }, {
+                "id": 2,
+                "name": "test.css",
+                "fileType": "File",
+                "location": "IRIS/test.css",
+                "isLeaf": true,
+                "data": { "language": "css", "value": "mo { background-color: var(--workbenchBackground); color: var(--foreground); }" }
+            }, {
+                "id": 3,
+                "name": "index.html",
+                "fileType": "File",
+                "location": "IRIS/index.html",
+                "isLeaf": true,
+                "data": { "language": "html", "value": "<div id=\"molecule\">Hello Molecule</div>" }
+            }, {
+                "id": 4,
+                "name": "test.json",
+                "fileType": "File",
+                "location": "IRIS/test.json",
+                "isLeaf": true,
+                "data": { "language": "json", "value": "{ \"language\": \"json\", \"value\": \"{}\" }" }
+            }
+        ]
+    }
+}
