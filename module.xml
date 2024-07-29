@@ -7,6 +7,20 @@
       <Keywords>irislab</Keywords>
       <Description>IRISLab</Description>
       <Packaging>module</Packaging>
+      <SourcesRoot>src</SourcesRoot>
+      <Resource Name="IRISLab.PKG"/>
+      <FileCopy Name="api.py" Target="${mgrdir}python/irislab/api.py" />
+      <CSPApplication
+        DispatchClass="IRISLab.WSGI"
+        MatchRoles=":%All"
+        CookiePath="/irislab"
+        Directory="{$cspdir}/irislab/"
+        Name="/irislab"
+        Path="/build"
+        ServeFiles="1"
+        Recurse="1"
+        Url="/irislab"
+      />
     </Module>
   </Document>
 </Export>

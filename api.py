@@ -1,7 +1,8 @@
 import iris
 from flask import Flask
+from flask import send_from_directory
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="build", static_url_path="")
 
 
 # put this sippet ahead of all your bluprints
@@ -82,10 +83,9 @@ def get_info():
     }
 
 
-@app.route("/", defaults={"path": ""})
-@app.route("/<path:path>")
-def catch_all(path):
-    return "You want path: %s" % path
+@app.route("/")
+def catch_all():
+    return send_from_directory("build", "index.html")
 
 
 if __name__ == "__main__":

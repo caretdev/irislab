@@ -1,7 +1,7 @@
 import { IExtension } from '@dtinsight/molecule/esm/model';
 // import { DataSourceExtension } from './dataSource';
 import { FirstExtension } from './theFirstExtension';
-// import { TerminalExtension } from './terminal';
+import { TerminalExtension } from './terminal';
 // import { ProblemsExtension } from './problems';
 import { RunningExtension } from './running';
 import { OneDarkPro } from './oneDarkPro/index';
@@ -12,7 +12,7 @@ import { ActionExtension } from './action';
 const extensions: IExtension[] = [
     new FirstExtension(),
     // new DataSourceExtension(),
-    // new TerminalExtension(),
+    new TerminalExtension(),
     // new ProblemsExtension(),
     new RunningExtension(),
     new SettingsExtension(),

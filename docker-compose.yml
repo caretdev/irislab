@@ -1,6 +1,6 @@
 services:  
   iris:
-    image: containers.intersystems.com/intersystems/iris-community:latest-preview
+    build: .
     ports:
       - 5073:52773
       - 5072:1972
@@ -11,7 +11,5 @@ services:
       - PIP_BREAK_SYSTEM_PACKAGES=1
       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/irisowner/bin:/home/irisowner/.local/bin
     command:
-      # - -b
-      # - pip install -e /home/irisowner/irislab/
       - -a
       - iris session iris -U%SYS '##class(Security.Users).UnExpireUserPasswords("*")'
