@@ -8,6 +8,7 @@
       <Description>IRISLab</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
+      <SystemRequirements Version=">=2024.1" />
       <Resource Name="IRISLab.PKG"/>
       <FileCopy Name="api.py" Target="${mgrdir}python/irislab/api.py" />
       <CSPApplication
