@@ -74,7 +74,7 @@ def get_doc(ns, doc):
     linesArray = iris.arrayref()
     iris.cls("%Atelier.v1.Utils.TextServices").GetTextAsArray(docname, 0, linesArray, 0)
     lines = int(linesArray["0"])
-    return [linesArray.value[str(line)] for line in range(1, lines)]
+    return list(linesArray.value.values())[1:lines]
 
 
 @app.route("/api")
