@@ -27,16 +27,16 @@ export class DataSourceSidebarView extends React.Component {
   }
 
   async fetchData() {
-    const schemas = await API.getSchemas();
-    const data: ICollapseItem[] = schemas.map((el: string) => ({
-      id: el,
-      name: el,
-      isLeaf: false,
-      fileType: "RootFolder",
-    }));
-    this.setState({
-      data,
-    });
+    // const schemas = await API.getSchemas();
+    // const data: ICollapseItem[] = schemas.map((el: string) => ({
+    //   id: el,
+    //   name: el,
+    //   isLeaf: false,
+    //   fileType: "RootFolder",
+    // }));
+    // this.setState({
+    //   data,
+    // });
   }
 
   reload() {
@@ -46,7 +46,7 @@ export class DataSourceSidebarView extends React.Component {
   selectedSource = (node: ITreeNodeItemProps) => {};
 
   async expandItem(expandedKeys: React.Key[], node: ITreeNodeItemProps) {
-    const tables = await API.getTables(expandedKeys[0].toString());
+    // const tables = await API.getTables(expandedKeys[0].toString());
   };
 
   renderHeaderToolbar(): IActionBarItemProps[] {

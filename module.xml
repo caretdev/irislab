@@ -12,15 +12,17 @@
       <Resource Name="IRISLab.PKG"/>
       <FileCopy Name="api.py" Target="${mgrdir}python/irislab/api.py" />
       <CSPApplication
+        Url="/irislab"
         DispatchClass="IRISLab.WSGI"
-        MatchRoles=":%All"
-        CookiePath="/irislab"
+        CookiePath="/irislab/"
+        UseCookies="2"
         Directory="{$cspdir}/irislab/"
         Name="/irislab"
         Path="/build"
         ServeFiles="1"
         Recurse="1"
-        Url="/irislab"
+        PasswordAuthEnabled="1"
+        UnauthenticatedEnabled="0"
       />
     </Module>
   </Document>

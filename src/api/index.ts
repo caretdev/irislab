@@ -3,33 +3,36 @@ import http from "../common/http";
 const basePath = "./mock";
 
 const api = {
-  getFolderTree(path: string) {
-    // return http.get(`${basePath}/folderTree.json`);
-    return http.get(encodeURI(`api/classes/${path}`));
+  getInfo() {
+    return http.get(encodeURI(`api`));
   },
 
-  getDoc(docname: string) {
-    return http.get(encodeURI(`api/doc/${docname}`));
+  getFolderTree(namespace: string, path: string) {
+    return http.get(encodeURI(`api/${namespace}/classes/${path}`));
+  },
+
+  getDoc(namespace: string, docname: string) {
+    return http.get(encodeURI(`api/${namespace}/doc/${docname}`));
   },
 
   search(value: string) {
-    return http.get(`${basePath}/folderTree.json`, { query: value });
+    return http.get(encodeURI(`${basePath}/folderTree.json`), { query: value });
   },
 
-  getDataSource() {
-    return http.get(`api/dataSource`);
+  getDataSource(namespace: string) {
+    return http.get(encodeURI(`api/${namespace}/dataSource`));
   },
 
-  getSchemas() {
-    return http.get(`api/schemas`);
+  getSchemas(namespace: string) {
+    return http.get(encodeURI(`api/${namespace}/schemas`));
   },
 
-  getTables(schema: string) {
-    return http.get(encodeURI(`api/tables/${schema}`));
+  getTables(namespace: string, schema: string) {
+    return http.get(encodeURI(`api/${namespace}/tables/${schema}`));
   },
 
   getSS() {
-    return http.get(encodeURI(`api/ss`));
+    return http.get(encodeURI(`api/%SYS/ss`));
   },
 
   async query(query: string = "") {
