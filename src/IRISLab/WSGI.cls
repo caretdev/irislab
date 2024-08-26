@@ -3,15 +3,17 @@ Class IRISLab.WSGI Extends %SYS.Python.WSGI
 
 Parameter UseSession = 1;
 
-Parameter Debug = 0;
+Parameter Debug = 1;
 
 ClassMethod OnPreDispatch(pUrl As %String, pMethod As %String, ByRef pContinue As %Boolean) As %Status [ Internal ]
 {
+  #if $system.Version.GetNumber()]]"2024.1"  
   set debug = $$$GetSecurityApplicationsWSGIDebug(%request.AppData)
   if debug '= ..#Debug {
     do ..SetDebug(%request.Application, ..#Debug)
   }
   do %response.SetHeader("x-wsgidebug", debug)
+  #endIf
 
 	set staticFileDirectory = $$$GetSecurityApplicationsPath(%request.AppData)
 	set serveStaticEnabled = $$$GetSecurityApplicationsServeFiles(%request.AppData)
@@ -36,8 +38,14 @@ ClassMethod OnPreDispatch(pUrl As %String, pMethod As %String, ByRef pContinue A
       return $$$OK
     }
   }
+  set params = 0
+  
+  #if $system.Version.GetNumber()]]"2024.1"
+  set params = 1
+  set params(1) = 1
+  #endIf
 
-	do ##class(%SYS.Python.WSGI).DispatchREST(pUrl, "", "irislab.api", "api", "1")
+	do ##class(%SYS.Python.WSGI).DispatchREST(pUrl, "", "irislab.api", "api", params...)
 	quit $$$OK
 }
 

@@ -1,4 +1,4 @@
-FROM containers.intersystems.com/intersystems/iris-community:latest-preview
+FROM containers.intersystems.com/intersystems/iris-community:2024.1
 
 RUN --mount=type=bind,src=.,dst=/home/irisowner/irislab <<EOT
 wget https://pm.community.intersystems.com/packages/zpm/latest/installer -O /tmp/zpm.xml
