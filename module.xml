@@ -3,7 +3,7 @@
   <Document name="irislab.ZPM">
     <Module>
       <Name>irislab</Name>
-      <Version>1.1.2</Version>
+      <Version>1.1.5</Version>
       <Keywords>irislab</Keywords>
       <Description>IRISLab</Description>
       <Packaging>module</Packaging>
